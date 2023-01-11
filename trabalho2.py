@@ -50,11 +50,14 @@ class modelo:
         print(grid.best_params_)
         grid_predictions = grid.predict(X_test)
 
+        print("\nPrecisão e Cobertura da classe positiva:")
         print(
             f"Precisão: {precision_score(y_test, grid_predictions, average=None)[1]}")
 
         print(
             f"Cobertura: {recall_score(y_test, grid_predictions, average=None)[1]}")
+
+        print("\n")
 
         # mostrar tabela de classificações
         print(classification_report(y_test, grid_predictions, zero_division=1))
@@ -69,7 +72,7 @@ X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.20, random
 modelo.predict(X_train, X_test, y_train, y_test)
 
 # Segunda parte
-print("Parte 2:")
+print("\nParte 2:")
 X, y = modelo.pre_processing_data_average(data_train)
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.20, random_state = 1) 
 modelo.predict(X_train, X_test, y_train, y_test)
