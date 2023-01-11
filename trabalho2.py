@@ -2,7 +2,6 @@ import pandas as pd
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import train_test_split
 
 from sklearn.metrics import classification_report
 from sklearn.metrics import recall_score
@@ -61,18 +60,3 @@ class modelo:
 
         # mostrar tabela de classificações
         print(classification_report(y_test, grid_predictions, zero_division=1))
-
-data_train = pd.read_csv("test-files/dropout-trabalho2.csv")
-modelo = modelo
-
-# Primeira Parte
-print("Parte 1:")
-X, y= modelo.pre_processing_data(data_train)
-X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.20, random_state = 1) 
-modelo.predict(X_train, X_test, y_train, y_test)
-
-# Segunda parte
-print("\nParte 2:")
-X, y = modelo.pre_processing_data_average(data_train)
-X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.20, random_state = 1) 
-modelo.predict(X_train, X_test, y_train, y_test)
